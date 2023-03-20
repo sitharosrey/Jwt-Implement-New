@@ -10,7 +10,7 @@ public interface UserRepository {
 
     @Select("""
             SELECT rt.user_role
-            FROM role_tb rt INNER JOIN user_role_tb urt on rt.id = urt.id
+            FROM role_tb rt INNER JOIN user_role_tb urt on rt.id = urt.role_id
             WHERE user_id = #{userId}
             """)
     List<String> getAllRolesByUserId(Integer userId);
